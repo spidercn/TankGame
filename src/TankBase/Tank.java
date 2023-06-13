@@ -4,7 +4,7 @@ public class Tank {
     private int x;//坦克的横坐标
     private int y;//坦克的纵坐标
     private int direct;//坦克的方向
-    private int speed=3;//坦克的速度
+    private int speed=5;//坦克的速度
     boolean isLive=true;
 
 

@@ -18,16 +18,17 @@ public class TankGame extends JFrame {
     }
 
 
-    //构造器，设定游戏区域，确定绘图领域
+    //构造器，设定游戏区域，确定绘图区域
     public TankGame(){
         System.out.println("请输入选择:1:新游戏 2:上局");
         String key=scanner.next();
-        mp=new MyPanel(key);//绘图领域
+        mp=new MyPanel(key);//绘图区域
         Thread thread=new Thread(mp);
+        //因为坦克的变化和子弹的变化需要绘制，因此将面板设置成线程
         thread.start();
         this.add(mp);//面板游戏绘图区域
         //确定框架的大小
-        this.setSize(1000,750);
+        this.setSize(1300,950);
         //键盘事件监听
         this.addKeyListener(mp);
         //当关闭页面，程序关闭
@@ -35,6 +36,7 @@ public class TankGame extends JFrame {
         //图形区域是否可见
         this.setVisible(true);
 
+        //游戏音乐设置
         this.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {

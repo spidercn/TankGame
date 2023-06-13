@@ -1,5 +1,7 @@
 package TankBase;
 
+
+//node记录坦克的信息，坐标，方向
 public class Node {
     private int x;
     private int y;

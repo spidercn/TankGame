@@ -11,7 +11,7 @@ public class EnemyTank extends Tank implements Runnable {
     Vector<Shot> shots = new Vector<>();
     Vector<EnemyTank> enemyTanks = new Vector<>();
 
-    //存货标志
+    //存活标志
     boolean isLive = true;
 
     //构造器确定敌方坦克的坐标位置
@@ -24,6 +24,7 @@ public class EnemyTank extends Tank implements Runnable {
         this.enemyTanks = enemyTanks;
     }
 
+    //判断是否重叠，防止重叠情况发生
     public boolean isTouchEnemyTank() {
 
         switch (this.getDirect()) {

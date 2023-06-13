@@ -4,12 +4,16 @@ import java.io.*;
 import java.util.Vector;
 
 @SuppressWarnings("all")
+
+//记录上局坦克的位置信息
 public class Recorder {
 
-    private static int enemyTank=0;
+    private static int enemyTank=0;//记录击毁的坦克数量
+    //读取文件
     private static FileWriter fileWriter=null;
+    //字符缓冲流
     private static BufferedWriter bw=null;
-    private static String recordFile="src\\myRecord.txt";
+    private static String recordFile="src\\myRecord.txt";//文件位置
 
     public static String getRecordFile() {
         return recordFile;
@@ -34,6 +38,7 @@ public class Recorder {
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
+            //关流
             try {
                 if(br!=null) br.close();
             } catch (IOException e) {
@@ -41,6 +46,7 @@ public class Recorder {
             }
         }
 
+        //将上局坦克的记录情况进行返回
         return nodes;
     }
 
@@ -60,6 +66,7 @@ public class Recorder {
         Recorder.enemyTank++;
     }
 
+    //保存坦克信息
     public static void keepRecord(){
         try {
             bw=new BufferedWriter(new FileWriter(recordFile));
@@ -80,6 +87,13 @@ public class Recorder {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+        }
+    }
+
+    public static void removeTxt(){
+        File file = new File(recordFile);
+        if (file.exists()){
+            file.delete();
         }
     }
 }
